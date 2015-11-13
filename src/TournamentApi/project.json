@@ -15,8 +15,7 @@
     "Microsoft.Framework.Logging.Debug" : "1.0.0-beta8",
     "Microsoft.Data.SQLite": "1.0.0-beta8",
     "EntityFramework.Commands": "7.0.0-beta8",
-    "EntityFramework.SQLite": "7.0.0-beta8",
-    "Newtonsoft.Json": "8.0.1-beta1"
+    "EntityFramework.SQLite": "7.0.0-beta8" 
   },
 
   "commands": {
