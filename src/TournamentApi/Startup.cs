@@ -6,6 +6,7 @@ using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Logging;
+using TournamentApi.Models;
 
 namespace TournamentApi
 {
@@ -13,6 +14,48 @@ namespace TournamentApi
     {
         public Startup(IHostingEnvironment env)
         {
+            using (var context = new TournamentContext())
+            {
+                context.Database.EnsureDeleted();
+                context.Database.EnsureCreated();
+                Game[] gameData = {
+                    new Game
+                    {
+                        Title = "League of Legends",
+                        Shortcode = "lol",
+                        ImageUrl = ""
+                    },
+                    new Game
+                    {
+                        Title = "Counter Strike: Global Offensive",
+                        Shortcode = "csgo",
+                        ImageUrl = ""
+                    },
+                    new Game
+                    {
+                        Title = "Defense of the Ancients",
+                        Shortcode = "dota",
+                        ImageUrl = ""
+                    }
+                };
+                                
+                context.Games.AddRange(gameData);                               
+                context.SaveChanges();
+                Match[] matchData = 
+                {
+                    new Match
+                    {
+                        Round = 1,
+                        Team1 = "Red Team",
+                        Team2 = "Blue Team",
+                        Status = "In Progress",
+                        Match_Game = context.Games.First(g => g.Shortcode == "dota")
+                    }                     
+                };
+                               
+                context.Matches.AddRange(matchData);
+                context.SaveChanges();
+            }
         }
 
         // This method gets called by a runtime.

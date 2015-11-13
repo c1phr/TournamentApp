@@ -6,8 +6,9 @@ namespace TournamentApi.Models
 	public class Game
 	{
 		[Key]
-		public int Game_Id { get; set; }
-		public string GameTitle { get; set; }
-		public string GameImage { get; set; }
+		public int Id { get; set; }
+		public string Title { get; set; }
+		public string Shortcode { get; set; }
+		public string ImageUrl { get; set; }
 	}
 }
