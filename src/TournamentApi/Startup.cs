@@ -23,19 +23,19 @@ namespace TournamentApi
                     {
                         Title = "League of Legends",
                         Shortcode = "lol",
-                        ImageUrl = ""
+                        ImageUrl = @"http://images.everyeye.it/img-notizie/fnatic-e-il-primo-team-nella-storia-di-league-of-legend-a-terminare-la-stagione-imbattuto-233231.jpg"
                     },
                     new Game
                     {
                         Title = "Counter Strike: Global Offensive",
                         Shortcode = "csgo",
-                        ImageUrl = ""
+                        ImageUrl = @"http://i.ytimg.com/vi/952EewAi--s/maxresdefault.jpg"
                     },
                     new Game
                     {
                         Title = "Defense of the Ancients",
                         Shortcode = "dota",
-                        ImageUrl = ""
+                        ImageUrl = @"http://cdn1.wallpaperus.org/wallpapers/set1/84/2123798184-dota2.jpg"
                     }
                 };
                                 
