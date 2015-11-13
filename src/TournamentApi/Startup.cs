@@ -48,9 +48,25 @@ namespace TournamentApi
                         Round = 1,
                         Team1 = "Red Team",
                         Team2 = "Blue Team",
+                        Status = "Finished",
+                        Match_Game = context.Games.First(g => g.Shortcode == "dota")
+                    },
+                    new Match
+                    {
+                        Round = 2,
+                        Team1 = "Purple Team",
+                        Team2 = "Blue Team",
                         Status = "In Progress",
                         Match_Game = context.Games.First(g => g.Shortcode == "dota")
-                    }                     
+                    },
+                    new Match
+                    {
+                        Round = 3,
+                        Team1 = "TBD",
+                        Team2 = "Blue Team",
+                        Status = "Scheduled",
+                        Match_Game = context.Games.First(g => g.Shortcode == "dota")
+                    }                    
                 };
                                
                 context.Matches.AddRange(matchData);
