@@ -3,6 +3,7 @@ using System.Linq;
 using Microsoft.AspNet.Mvc;
 using TournamentApi.Models;
 using Microsoft.Data.Entity;
+using TournamentApi.ViewModels;
 
 namespace TournamentApi.Controllers
 {
@@ -26,5 +27,19 @@ namespace TournamentApi.Controllers
 			}
 			return null;
 		}
+
+        [HttpPost]
+        public Match Post(MatchViewModel newMatchVm)
+        {
+            Match newMatch = new Match();
+			newMatch.Match_Game = db.Games.First(g => g.Shortcode == newMatchVm.GameShortcode);
+			newMatch.Round = newMatchVm.Round;
+			newMatch.Team1 = newMatchVm.Team1;
+			newMatch.Team2 = newMatchVm.Team2;
+			newMatch.Status = newMatchVm.Status;
+			var newDbMatch = db.Matches.Add(newMatch);
+			db.SaveChanges();
+            return newDbMatch.Entity;
+        }
 	}
 }
