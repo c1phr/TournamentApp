@@ -29,7 +29,7 @@ namespace TournamentApi.Controllers
 		}
 
         [HttpPost]
-        public Match Post(MatchViewModel newMatchVm)
+        public Match Post([FromBody]MatchViewModel newMatchVm)
         {
             Match newMatch = new Match();
 			newMatch.Match_Game = db.Games.First(g => g.Shortcode == newMatchVm.GameShortcode);
